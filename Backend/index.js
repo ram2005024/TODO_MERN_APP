@@ -6,9 +6,7 @@ import cors from "cors";
 dotenv.config();
 ConnectTODB();
 const app = express();
-app.use( cors({
-    origin: "todo-mern-app-plkz",
-  }));
+app.use( cors());
 app.use(express.json());
 const PORT = process.env.PORT || 8000;
 app.use("/todo", toDoRouter);
