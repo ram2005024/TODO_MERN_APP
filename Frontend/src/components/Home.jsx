@@ -122,7 +122,7 @@ const Home = () => {
             />
             <button
               type="button"
-              onClick={handleTask}
+              onClick={()=>handleTask()}
               className="bg-indigo-500 p-3 rounded-xl cursor-pointer"
             >
               <FaPlus className="text-white" />
