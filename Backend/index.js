@@ -6,10 +6,15 @@ import cors from "cors";
 dotenv.config();
 ConnectTODB();
 const app = express();
-app.use(cors());
+app.use( cors({
+    origin: "todo-mern-app-plkz",
+  }));
 app.use(express.json());
 const PORT = process.env.PORT || 8000;
 app.use("/todo", toDoRouter);
+app.get("/", (req, res) => {
+  res.send("Hello from server");
+});
 app.listen(PORT, () => {
   console.log(`App succesfuly running on port ${PORT}`);
 });
