@@ -39,7 +39,7 @@ const Home = () => {
       };
       try {
         const { data } = await axios.put(
-          `https://todo-mern-app-mrq8-api.vercel.app//todo/${isEdit._id}`,
+          `https://todo-mern-app-mrq8-api.vercel.app/todo/${isEdit._id}`,
           obj
         );
         if (data.success) {
