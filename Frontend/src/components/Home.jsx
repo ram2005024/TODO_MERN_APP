@@ -9,9 +9,7 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [copyTask, setCopy] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get(
-      "https://todo-mern-app-zit5.vercel.app/todo"
-    );
+    const { data } = await axios.get("http://locahost:5000/todo");
     setTasks(data.data);
     setCopy(data.data);
   };
@@ -21,10 +19,7 @@ const Home = () => {
       isDone: false,
     };
     try {
-      const { data } = await axios.post(
-        "https://todo-mern-app-zit5.vercel.app/todo",
-        obj
-      );
+      const { data } = await axios.post("http://locahost:5000/todo", obj);
       if (data.success) {
         toast.success(data.message);
         setText("");
@@ -44,7 +39,7 @@ const Home = () => {
       };
       try {
         const { data } = await axios.put(
-          `https://todo-mern-app-zit5.vercel.app/todo/${isEdit._id}`,
+          `http://locahost:5000/todo/${isEdit._id}`,
           obj
         );
         if (data.success) {
@@ -62,9 +57,7 @@ const Home = () => {
   };
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete(
-        "https://todo-mern-app-zit5.vercel.app/todo/" + id
-      );
+      const { data } = await axios.delete("http://locahost:5000/todo/" + id);
       if (data.success) {
         toast.success(data.message);
         setText("");
@@ -83,10 +76,7 @@ const Home = () => {
       isDone: !isDone,
     };
     try {
-      const { data } = await axios.put(
-        `https://todo-mern-app-zit5.vercel.app/todo/${id}`,
-        obj
-      );
+      const { data } = await axios.put(`http://locahost:5000/todo/${id}`, obj);
       if (data.success) {
         toast.success(data.message);
         fetchData();
