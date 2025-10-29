@@ -10,6 +10,9 @@ app.use(cors());
 app.use(express.json());
 const PORT = process.env.PORT || 8000;
 app.use("/todo", toDoRouter);
+app.get("/", (req, res) => {
+  res.send("Hello from server");
+});
 app.listen(PORT, () => {
   console.log(`App succesfuly running on port ${PORT}`);
 });
