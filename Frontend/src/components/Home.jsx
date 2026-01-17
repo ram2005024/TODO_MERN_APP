@@ -9,7 +9,9 @@ const Home = () => {
   const [tasks, setTasks] = useState([]);
   const [copyTask, setCopy] = useState([]);
   const fetchData = async () => {
-    const { data } = await axios.get("http://localhost:5000/todo");
+    const { data } = await axios.get(
+      "https://todo-mern-app-3.onrender.com/todo",
+    );
     setTasks(data.data);
     setCopy(data.data);
   };
@@ -19,7 +21,10 @@ const Home = () => {
       isDone: false,
     };
     try {
-      const { data } = await axios.post("http://localhost:5000/todo", obj);
+      const { data } = await axios.post(
+        "https://todo-mern-app-3.onrender.com/todo",
+        obj,
+      );
       if (data.success) {
         toast.success(data.message);
         setText("");
@@ -39,8 +44,8 @@ const Home = () => {
       };
       try {
         const { data } = await axios.put(
-          `http://localhost:5000/todo/${isEdit._id}`,
-          obj
+          `https://todo-mern-app-3.onrender.com/todo/${isEdit._id}`,
+          obj,
         );
         if (data.success) {
           toast.success(data.message);
@@ -57,7 +62,9 @@ const Home = () => {
   };
   const handleDelete = async (id) => {
     try {
-      const { data } = await axios.delete("http://localhost:5000/todo/" + id);
+      const { data } = await axios.delete(
+        "https://todo-mern-app-3.onrender.com/todo/" + id,
+      );
       if (data.success) {
         toast.success(data.message);
         setText("");
@@ -76,7 +83,10 @@ const Home = () => {
       isDone: !isDone,
     };
     try {
-      const { data } = await axios.put(`http://localhost:5000/todo/${id}`, obj);
+      const { data } = await axios.put(
+        `https://todo-mern-app-3.onrender.com/todo/${id}`,
+        obj,
+      );
       if (data.success) {
         toast.success(data.message);
         fetchData();
@@ -90,7 +100,7 @@ const Home = () => {
   const handleSearch = (e) => {
     const term = e.target.value.toLowerCase();
     const searchedTasks = copyTask.filter((items) =>
-      items.task.toLowerCase().includes(term)
+      items.task.toLowerCase().includes(term),
     );
 
     setTasks(searchedTasks);
@@ -111,8 +121,8 @@ const Home = () => {
         To Do App
       </h1>
       <div>
-        <div className="flex gap-4 mb-3">
-          <div className="flex gap-2">
+        <div className="flex gap-4 mb-3 max-sm:flex-col">
+          <div className="flex gap-2 ">
             <input
               type="text"
               placeholder="Enter the task"
