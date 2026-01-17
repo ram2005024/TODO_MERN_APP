@@ -40,7 +40,7 @@ This project was created as a learning exercise to understand the fundamentals o
 
 1. Clone the repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/ram2005024/TODO_MERN_APP.git
 cd todo-app
 ```
 
