@@ -19,9 +19,9 @@ This project was created as a learning exercise to understand the fundamentals o
 ## 🛠️ Tech Stack
 
 **Frontend:**
-- React
+- React + Vite
+- Tailwind CSS
 - Axios
-- Taiwind
 
 **Backend:**
 - Node.js
@@ -44,18 +44,18 @@ git clone <repository-url>
 cd todo-app
 ```
 
-2. Install dependencies for both client and server
+2. Install dependencies for both Backend and Frontend
 ```bash
-# Install server dependencies
-cd server
+# Install backend dependencies
+cd Backend
 npm install
 
-# Install client dependencies
-cd ../client
+# Install frontend dependencies
+cd ../Frontend
 npm install
 ```
 
-3. Create a `.env` file in the server directory
+3. Create a `.env` file in the Backend directory
 ```env
 MONGODB_URI=your_mongodb_connection_string
 PORT=5000
@@ -63,16 +63,20 @@ PORT=5000
 
 4. Run the application
 ```bash
-# Start backend (from server directory)
+# Start backend (from Backend directory)
 npm start
 
-# Start frontend (from client directory)
-npm start
+# Start frontend (from Frontend directory)
+npm run dev
 ```
+
+The app will run at `http://localhost:5173`
 
 ## 📚 What I Learned
 
-- Setting up a full MERN stack application
+- Setting up a full MERN stack application from scratch
+- Building a React app with Vite for faster development
+- Styling with Tailwind CSS utility classes
 - Implementing RESTful API endpoints
 - Connecting React frontend with Express backend
 - Performing CRUD operations with MongoDB
